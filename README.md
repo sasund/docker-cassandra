@@ -7,7 +7,7 @@ docker run -t "cassandra-single"
 
 ## ssh to container for running opecenter
 
-docker exec -ti <CONTAINER ID> bash
+docker exec -ti CONTAINER_ID bash
 
 service datastax-agent start
 
