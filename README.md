@@ -1,5 +1,5 @@
 # docker-cassandra
 
-docker build -t "cassandra-sigle" .
+docker build -t "cassandra-single" .
 
-docker run -t "cassandra-sigle"
+docker run -t "cassandra-single"
