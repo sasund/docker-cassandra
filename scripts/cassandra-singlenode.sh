@@ -31,4 +31,7 @@ if [ ! -z "$CASSANDRA_DC" ]; then
     echo "default=$CASSANDRA_DC:rac1" > $CASSANDRA_CONFIG/cassandra-topology.properties
 fi
 
+# In address.yaml set stomp_interface to the IP address that OpsCenter is using
+echo "stomp_interface: $IP" | sudo tee -a /var/lib/datastax-agent/conf/address.yaml
+
 exec cassandra -f

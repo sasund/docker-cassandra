@@ -21,7 +21,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 RUN DEBIAN_FRONTEND=noninteractive echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 RUN DEBIAN_FRONTEND=noninteractive curl -L http://debian.datastax.com/debian/repo_key | sudo apt-key add -
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dsc20=2.0.16-1 cassandra=2.0.16 opscenter
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dsc20=2.0.16-1 cassandra=2.0.16 opscenter datastax-agent
 
 ENV CASSANDRA_CONFIG /etc/cassandra
 
@@ -34,8 +34,6 @@ RUN /usr/local/bin/config-cassandra-base
 RUN rm -f /etc/security/limits.d/cassandra.conf
 
 EXPOSE 7199 7000 7001 9160 9042 22 8012 61621 8888
-
-RUN service opscenterd start
 
 # Start Cassandra
 ENTRYPOINT ["cassandra-singlenode"]
